@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B0F13">
+
+    <!-- ================= 背景图 + 压暗遮罩 =================
+         原图是亮色调（自上而下亮度 141→213）。白字直接压上去对比度只有 1.24~2.61，
+         远低于 WCAG 正文门槛 4.5 —— 所以这里必须两层一起做：
+           1) #0A1420 @56% 遮罩，把最亮处压到 L≈0.13
+           2) 正文色整体提亮到 #DCE8F4 / 白（原 #8FA3B5 在亮背景上无解）
+         两层配合后实测各区域对比度均 >=4.5。 -->
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_sky"
+        android:importantForAccessibility="no" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#6B0A1420" />
+
+    <!-- ================= 主界面 ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 顶栏 48dp
+             左：地域分组标签；右：在线状态 + 时间。
+             原来左上角还有个"电台"胶囊按钮，与底栏最右的列表图标是同一个动作
+             （都调 toggleList()），纯重复入口，已删除。
+             顶栏不再铺 #730B0F13 实色底：那层 45% 深色与主体之间有硬边分界
+             （实测 y=72 行均值从 54 突跳到 89），视觉上就是顶部的黑色横条。
+             去掉后背景图从 y=0 起完整贯穿，靠全屏 #6B0A1420 遮罩统一压暗。
+             左右 padding 16dp -> 24dp：左边第一个元素不再是需要贴边的按钮，
+             留出 36px 呼吸位；右边时间行末对齐到 x=764，仍在右死区(x>=770)之外。 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <!-- 地域分组标签：11sp 灰字 -> 15sp 白色粗体 + 20% 橙底胶囊 + 橙色圆点。
+                 实测对比度 3.98 -> 5.93（背景是遮罩后的 (47,95,135)）。
+                 高度 32dp 与旧按钮等高，上下各留 8dp(12px) 安全边距。
+                 它不可点击，所以不受顶部死区影响。 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_group_tag"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="15dp">
+
+                <View
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:background="@drawable/dot_accent" />
+
+                <TextView
+                    android:id="@+id/txtGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:letterSpacing="0.03"
+                    android:text=""
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+        android:shadowColor="#C4000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="2.5" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- 右上：在线状态 + 时间，整体放大一档
+                 圆点 8dp -> 10dp，状态字 11sp -> 13sp，时间 12sp -> 16sp 粗体。
+                 状态字的颜色由 setNet() 运行时写，也一并提亮：
+                 在线原 #7E8C9A 对比度只有 1.96（远低于 4.5 门槛，这是它
+                 看着最费眼的根源，不是字号问题），改 #DCE8F4 / 5.44；
+                 离线原 #FF5A5A 只有 2.21，改 #FFC0C0 / 4.36，
+                 红色相不变（报警语义保留），只是提亮到能看清。 -->
+            <View
+                android:id="@+id/netDot"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/dot_off" />
+
+            <TextView
+                android:id="@+id/txtNet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@string/net_offline"
+                android:textColor="#DCE8F4"
+                android:textSize="13sp"
+        android:shadowColor="#C4000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="2.5" />
+
+            <TextView
+                android:id="@+id/clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="--:--"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+        android:shadowColor="#C4000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="2.5" />
+        </LinearLayout>
+
+        <!-- 主体（弹性填充）—— 整体居中
+             改造前：频谱图贴左(paddingLeft 24dp)，文字列 weight=1 把右边撑满，
+             四行文字又全部左对齐，于是所有内容都挤在屏幕左半边，
+             右侧空出一大片天空 —— 这就是"偏左"的来源。
+             现在两层：
+               外层 FrameLayout 只负责"把内容摆到正中"（子项 layout_gravity=center）；
+               内层 wrap_content 的横排决定实际宽度：
+                 118dp(频谱) + 20dp(间距) + 282dp(文字列) = 420dp = 630px，
+                 在 800px 屏上左右各留 85px，不再贴边。
+             文字列里每一行都改成 gravity=center，四行共用同一条中轴(x≈503)：
+               台名 / 曲目 / 编码徽章 / 状态点+状态字
+             竖排高度 155px < 频谱 177px，所以行高仍由频谱决定，
+             内容盒仍是 y[121,298]，与改造前一致，不会顶到上下栏。 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <com.tongsir.radio.WaveView
+                    android:id="@+id/wave"
+                    android:layout_width="118dp"
+                    android:layout_height="118dp" />
+
+                <LinearLayout
+                    android:layout_width="282dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtStation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:text="@string/station_none"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+        android:shadowColor="#C4000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="2.5" />
+
+                    <TextView
+                        android:id="@+id/txtTrack"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:text=""
+                        android:textColor="#DCE8F4"
+                        android:textSize="15sp"
+        android:shadowColor="#C4000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="2.5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/badgeCodec"
+                            android:layout_width="wrap_content"
+                            android:layout_height="18dp"
+                            android:background="@drawable/bg_pill"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:gravity="center"
+                            android:text="HLS"
+                            android:textColor="#DCE8F4"
+                            android:textSize="10sp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/txtBitrate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text=""
+                            android:textColor="#B7C9DA"
+                            android:textSize="11sp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <View
+                            android:id="@+id/stateDot"
+                            android:layout_width="7dp"
+                            android:layout_height="7dp"
+                            android:background="@drawable/dot_off" />
+
+                        <TextView
+                            android:id="@+id/txtState"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="7dp"
+                            android:text="@string/state_idle"
+                            android:textColor="#DCE8F4"
+                            android:textSize="12sp"
+        android:shadowColor="#C4000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="2.5" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- 缓冲条 4dp。底色同样去掉（与顶/底栏统一），缓冲中才由 bufBar 自身画橙色条 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="4dp">
+
+            <View
+                android:id="@+id/bufBar"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#FF7A45"
+                android:visibility="invisible" />
+        </FrameLayout>
+
+        <!-- 底栏：整体向中间靠拢，避开 LX04 屏幕四边的 ROM 手势死区。
+             实测死区（800x480 本机，input tap 逐点扫描）：
+               左 x<=28 被吃掉 / x>=30 命中
+               右 x>=770 被吃掉 / x<=765 命中
+               下 y>=452 被吃掉 / y<=448 命中
+             改造前命中区铺满 x[0,800] y[390,480]，左边 30px、右边 40px、下边 32px 全在死区里，
+             按压边缘会没反应。所以这里做两层安全边距：
+               paddingLeft/Right = 40dp(60px)  -> 命中带 x[60,740]，左右各留 30/25px 余量
+               paddingBottom     = 24dp(36px)  -> 命中带止于 y=444，离 y=452 死区还有 8px
+             高度同步 60dp -> 84dp：paddingBottom 吃掉 36px 后，内容盒仍是 90px。
+             底栏不再铺 #730B0F13 实色底：那层 45% 深色与主体之间有硬边分界
+             （实测 y=348 行均值从 124 突跳到 75），视觉上就是底部的黑色横条，
+             连 paddingBottom 那段安全区也一起被染黑。去掉后背景图完整铺到 y=480，
+             安全区不再是"黑带"而是背景本身的延续。
+             图标自带深色/橙色底盘，在亮背景上仍清晰，不依赖底栏底色。
+             6 个槽位等分 680px，每槽约 113x90px，仍然远大于 44dp 触控下限：
+               IconView  六个统一 46dp（底盘 67px），只负责画，不 clickable。
+                         46dp 是内容盒 90px 的合理上限附近：底盘 67px 上下各留 11.5px，
+                         按压缩放是 0.93（缩小）故不会越界裁切。
+                         形状差异（播放三角纵向满 ±s、心形贝塞尔只有 1.575s，外接框差近一倍）
+                         由 IconView.shapeHeight 按形状反推 s 归一，
+                         所以这里六个控件的尺寸规格是完全一致的，视觉外接高也一致。
+                         底盘一律由 MainActivity 配：五大键深盘 C_DISC，播放键橙盘 C_ACCENT，
+                         主次靠颜色而不是靠尺寸放大来区分。
+               hitXxx    铺满整槽的完全透明 View，承接点击
+             槽与槽首尾相接、互不重叠，边界像素只会落进一个槽。
+             按下态由 ViewGroup.dispatchSetPressed 自动传给下方非 clickable 的 IconView，
+             所以放大热区后图标的按下反馈（缩放/亮环）照旧。 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingBottom="24dp">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- 命中层必须是图标的"父容器"而不是兄弟节点：
+                     ViewGroup.dispatchSetPressed 只把按下态传给自己的子 View，
+                     兄弟节点收不到 —— 上一版按下反馈失效就是栽在这里。 -->
+                <FrameLayout
+                    android:id="@+id/hitVolume"
+                    android:contentDescription="@string/cd_volume"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_hit"
+                    android:focusable="true">
+
+                    <com.tongsir.radio.IconView
+                        android:id="@+id/btnVolume"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:id="@+id/hitPrev"
+                    android:contentDescription="@string/cd_prev"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_hit"
+                    android:focusable="true">
+
+                    <com.tongsir.radio.IconView
+                        android:id="@+id/btnPrev"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:id="@+id/hitPlay"
+                    android:contentDescription="@string/cd_play"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_hit"
+                    android:focusable="true">
+
+                    <com.tongsir.radio.IconView
+                        android:id="@+id/btnPlay"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:id="@+id/hitNext"
+                    android:contentDescription="@string/cd_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_hit"
+                    android:focusable="true">
+
+                    <com.tongsir.radio.IconView
+                        android:id="@+id/btnNext"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:id="@+id/hitFav"
+                    android:contentDescription="@string/cd_fav"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_hit"
+                    android:focusable="true">
+
+                    <com.tongsir.radio.IconView
+                        android:id="@+id/btnFav"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <!-- 辅助入口：底栏最右 = 右下角拇指热区。
+                 理由：LX04 摆在桌面/床头，人从正面伸手过来，右下角是手臂自然落点，
+                 而左上角顶栏要抬手够到最远角，且离屏幕边缘最近、最容易被手指根挡住。
+                 两个入口共用 toggleList()，行为完全一致，不新增逻辑分支。
+                 槽位从 5 个变 6 个，单槽 160px -> 133px，图标全部居中，观感仍是等分。 -->
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:id="@+id/hitList"
+                    android:contentDescription="@string/cd_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_hit"
+                    android:focusable="true">
+
+                    <com.tongsir.radio.IconView
+                        android:id="@+id/btnList"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ================= 电台列表覆盖层 ================= -->
+    <LinearLayout
+        android:id="@+id/listPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#B80B0F13"
+        android:visibility="gone">
+
+        <!-- 列表头部同步加高到 48dp，让"返回"拿到和顶栏"电台"一样的热区 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/list_title"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/btnCloseList"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:minWidth="56dp"
+                android:background="@drawable/bg_pill_btn"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:gravity="center"
+                android:focusable="true"
+                android:text="@string/btn_back"
+                android:textColor="@color/sel_pill_text"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/listScroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none"
+            android:scrollbarSize="0dp"
+            android:scrollbarThumbVertical="@android:color/transparent"
+            android:scrollbarTrackVertical="@android:color/transparent"
+            android:fadeScrollbars="true"
+            android:scrollbarDefaultDelayBeforeFade="1"
+            android:background="#0B0F13">
+
+            <LinearLayout
+                android:id="@+id/listContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- ================= 音量弹层 ================= -->
+    <FrameLayout
+        android:id="@+id/volPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A6000000"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_panel"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/volume_title"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtVol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50"
+                    android:textColor="#FF7A45"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seekVol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:max="100"
+                android:progressDrawable="@drawable/seek_track"
+                android:thumb="@drawable/seek_thumb"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

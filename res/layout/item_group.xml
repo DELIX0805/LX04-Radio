@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 分组标题：箭头 + 地域名 + 台数。整行可点，点击切换该分组展开/收起。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="18dp"
+    android:background="#40000000">
+
+    <com.tongsir.radio.IconView
+        android:id="@+id/groupArrow"
+        android:layout_width="22dp"
+        android:layout_height="22dp" />
+
+    <TextView
+        android:id="@+id/groupName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textColor="#DCE6F0"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:shadowColor="#C4000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="2.5" />
+
+    <TextView
+        android:id="@+id/groupCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textColor="#8FA0B0"
+        android:textSize="12sp" />
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 顶栏/列表头部的胶囊按钮背景（可点击态）。
+     与 bg_pill 同色系、同"全圆角胶囊"观感，只是把圆角跟着高度一起放大：
+     bg_pill 是 14dp 圆角配 24dp 高（已被裁到 12dp = 全圆），
+     这里按钮高 32dp，所以圆角取 16dp，视觉上仍然是同一个胶囊。
+     新增 pressed / focused / hovered 三态，解决"点了没反应"的困惑。 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 按下：底色提亮 + 橙色描边，手指按下瞬间就能看到 -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp" />
+            <solid android:color="#E62A3541" />
+            <stroke android:width="1.5dp" android:color="#FFFF7A45" />
+        </shape>
+    </item>
+
+    <!-- 聚焦（DPAD / 键盘 / 遥控器导航） -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp" />
+            <solid android:color="#D926313C" />
+            <stroke android:width="1.5dp" android:color="#CCFF7A45" />
+        </shape>
+    </item>
+
+    <!-- 悬停（外接鼠标 / 触摸笔悬浮） -->
+    <item android:state_hovered="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp" />
+            <solid android:color="#D926313C" />
+            <stroke android:width="1.5dp" android:color="#CCFF7A45" />
+        </shape>
+    </item>
+
+    <!-- 常态：与 bg_pill 完全一致 -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp" />
+            <solid android:color="#B31C242D" />
+            <stroke android:width="1dp" android:color="#802A3541" />
+        </shape>
+    </item>
+</selector>

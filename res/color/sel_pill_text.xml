@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 胶囊按钮文字颜色状态：常态 #D7E0EA（与顶栏其它文字同档），
+     按下 / 聚焦 / 悬停时提亮到纯白，配合背景描边一起给出"已响应"的反馈。 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true"  android:color="#FFFFFFFF" />
+    <item android:state_focused="true"  android:color="#FFFFFFFF" />
+    <item android:state_hovered="true"  android:color="#FFFFFFFF" />
+    <item android:color="#D7E0EA" />
+</selector>

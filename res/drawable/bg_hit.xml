@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 底栏命中层背景。
+     命中层本身完全透明（视觉上不能改变图标观感），但它 focusable，
+     只给「聚焦」一种状态画一圈淡橙提示：DPAD/遥控操作时能看出焦点在哪。
+     按下态刻意不画 —— 按下反馈由图标自身的缩放+亮环负责，加一层矩形会改变现有观感。 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#1AFF7A45" />
+            <stroke android:width="2dp" android:color="#99FF7A45" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+    <item android:drawable="@android:color/transparent" />
+</selector>
