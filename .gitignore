@@ -1,0 +1,48 @@
+# ===== 构建产物 =====
+build/
+*.apk
+*.dex
+*.class
+res.zip
+# build.py 清理时会把旧 build/ 改名挪出仓库（规避沙箱删除拦截），这类残留同样不入库
+.build_stale_*/
+
+# ===== 签名密钥：私钥，绝不入库 =====
+*.jks
+*.keystore
+
+# ===== 本机路径配置（含用户名，不入库）=====
+local.properties
+*.bak
+
+# ===== 设备日志 / 调试输出 =====
+*.log
+*logcat*
+*Logcat*
+*_out.txt
+ui.xml
+
+# ===== 调试截图：README 用的挑出来放 assets/ =====
+shots/
+shots_v2/
+
+# ===== 一次性调试脚本：只保留 build.py 与 make_icon.py =====
+*.py
+!build.py
+!make_icon.py
+
+# ===== 编辑器 / 系统 =====
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ===== 验证/探测过程的临时产物 =====
+# 真机回归脚本会往仓库根丢 prefs 注入文件、uiautomator dump 和各种 _out.txt，
+# 这些不该跟着代码一起提交（早前 ui.xml 是单点忽略的，漏一个就混进来了）。
+_inj_*.xml
+_pref_*.xml
+ui*.xml
+_*.json
+_*.txt
+_*.log

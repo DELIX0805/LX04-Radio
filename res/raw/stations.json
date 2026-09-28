@@ -1,0 +1,2743 @@
+{
+  "version": 2,
+  "updated": "2026-09-22",
+  "note": "全部 URL 均在 LX04 真机实测：先用原生 HTTP 抓取确认清单与媒体分片可取（HTTP 200），再用 MediaPlayer prepareAsync 实际起播并校验播放位置推进（verified=true）。只访问得通但播不出的源一律不收录。；排序规则：央广置顶，其余按省名拼音 A-Z，宜春并入江西",
+  "stations": [
+    {
+      "id": "cnr_zgzs",
+      "name": "中国之声",
+      "group": "央广",
+      "url": "http://ngcdn001.cnr.cn/live/zgzs/index.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 中国之声",
+      "verified": true
+    },
+    {
+      "id": "cnr_jjzs",
+      "name": "经济之声",
+      "group": "央广",
+      "url": "http://ngcdn002.cnr.cn/live/jjzs/index.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 经济之声",
+      "verified": true
+    },
+    {
+      "id": "cnr_hqzx",
+      "name": "环球资讯广播",
+      "group": "央广",
+      "url": "http://satellitepull.cnr.cn/live/wxhqzx01/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 环球资讯",
+      "verified": true
+    },
+    {
+      "id": "cnr_hitfm",
+      "name": "HIT FM 劲曲调频",
+      "group": "央广",
+      "url": "http://satellitepull.cnr.cn/live/wxhitfm/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 国际流行音乐",
+      "verified": true
+    },
+    {
+      "id": "cri_905",
+      "name": "环球资讯 FM90.5",
+      "group": "央广",
+      "url": "http://sk.cri.cn/905.m3u8",
+      "codec": "HLS",
+      "desc": "中国国际广播电台 · CRI",
+      "verified": true
+    },
+    {
+      "id": "cri_nhzs",
+      "name": "南海之声",
+      "group": "央广",
+      "url": "http://sk.cri.cn/nhzs.m3u8",
+      "codec": "HLS",
+      "desc": "中国国际广播电台 · 南海之声",
+      "verified": true
+    },
+    {
+      "id": "cnr_26c037",
+      "name": "世界华声广播",
+      "group": "央广",
+      "url": "https://sk.cri.cn/hxfh.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 官方 CDN",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxczs",
+      "name": "中国乡村之声",
+      "group": "央广",
+      "url": "http://satellitepull.cnr.cn/live/wxxczs/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_4f12a3",
+      "name": "中国交通广播",
+      "group": "央广",
+      "url": "https://ngcdn002.cnr.cn/live/gsgljtgb/index.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 官方 CDN",
+      "verified": true
+    },
+    {
+      "id": "cnr_fae08e",
+      "name": "中文环球广播·CRI chinese service",
+      "group": "央广",
+      "url": "http://sk.cri.cn/hyhq.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 官方 CDN",
+      "verified": true
+    },
+    {
+      "id": "cnr_eccf9b",
+      "name": "京津冀之声",
+      "group": "央广",
+      "url": "https://brtv-radiolive.rbc.cn/alive/fm1006.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxwyzs",
+      "name": "文艺之声",
+      "group": "央广",
+      "url": "http://satellitepull.cnr.cn/live/wxwyzs/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxmzzs",
+      "name": "民族之声",
+      "group": "央广",
+      "url": "http://satellitepull.cnr.cn/live/wxmzzs/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxdszs",
+      "name": "经典音乐广播",
+      "group": "央广",
+      "url": "http://satellitepull.cnr.cn/live/wxdszs/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxlnzs",
+      "name": "老年之声",
+      "group": "央广",
+      "url": "http://satellitepull.cnr.cn/live/wxlnzs/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_d0bb2d",
+      "name": "音乐之声",
+      "group": "央广",
+      "url": "https://ngcdn001.cnr.cn/live/yyzs/index.m3u8",
+      "codec": "HLS",
+      "desc": "中央广播电视总台 · 官方 CDN",
+      "verified": true
+    },
+    {
+      "id": "ah_71380b",
+      "name": "亳州综合广播",
+      "group": "安徽",
+      "url": "http://zbbf2.ahbztv.com/live/41a.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxahjtgb",
+      "name": "安徽交通广播",
+      "group": "安徽",
+      "url": "http://satellitepull.cnr.cn/live/wxahjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxahncgb",
+      "name": "安徽农村广播",
+      "group": "安徽",
+      "url": "http://satellitepull.cnr.cn/live/wxahncgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxahxspsgb",
+      "name": "安徽小说评书广播",
+      "group": "安徽",
+      "url": "http://satellitepull.cnr.cn/live/wxahxspsgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxahxqgb",
+      "name": "安徽戏曲广播·动听995",
+      "group": "安徽",
+      "url": "http://satellitepull.cnr.cn/live/wxahxqgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxahlygb",
+      "name": "安徽旅游广播·高速之声",
+      "group": "安徽",
+      "url": "http://satellitepull.cnr.cn/live/wxahlygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxahshgb",
+      "name": "安徽生活广播·城市之声",
+      "group": "安徽",
+      "url": "http://satellitepull.cnr.cn/live/wxahshgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxahjjgb",
+      "name": "安徽经济广播",
+      "group": "安徽",
+      "url": "http://satellitepull.cnr.cn/live/wxahjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxahxxgb",
+      "name": "安徽综合广播",
+      "group": "安徽",
+      "url": "http://satellitepull.cnr.cn/live/wxahxxgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxahyygb",
+      "name": "安徽音乐广播",
+      "group": "安徽",
+      "url": "http://satellitepull.cnr.cn/live/wxahyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "ah_a24718",
+      "name": "广德综合广播 FM89.3",
+      "group": "安徽",
+      "url": "https://live.gdtv.ah.cn/live/FM893.m3u8",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · FM89.3",
+      "verified": true
+    },
+    {
+      "id": "ah_96d452",
+      "name": "滁州旅游交通广播",
+      "group": "安徽",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/174/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "ah_a0382d",
+      "name": "滁州综合广播",
+      "group": "安徽",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/154/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "安徽广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "bj_732543",
+      "name": "北京延庆之声",
+      "group": "北京",
+      "url": "https://videoplaynew.yanqingrmzx.com/yq/gb.m3u8",
+      "codec": "HLS",
+      "desc": "北京广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxbjxwgb",
+      "name": "北京新闻广播",
+      "group": "北京",
+      "url": "http://satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "北京广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsdyygb",
+      "name": "北京经典969",
+      "group": "北京",
+      "url": "http://satellitepull.cnr.cn/live/wxsdyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "北京广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "bj_71528f",
+      "name": "北京音乐广播",
+      "group": "北京",
+      "url": "https://brtv-radiolive.rbc.cn/alive/fm974.m3u8",
+      "codec": "HLS",
+      "desc": "北京广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "bj_70ce20",
+      "name": "北京顺义区广播FM92.9",
+      "group": "北京",
+      "url": "https://livesy.chinamcache.com/live/gb01.m3u8",
+      "codec": "HLS",
+      "desc": "北京广播电视台 · FM92.9",
+      "verified": true
+    },
+    {
+      "id": "bj_64f0a4",
+      "name": "怀柔综合广播",
+      "group": "北京",
+      "url": "https://pili-live-hls-bjhr-tv.huairtv.com/bjhr-tv/FM101.m3u8?sign=7f858402fef017cb7676deacd1835b4f&t=69bb65a3",
+      "codec": "HLS",
+      "desc": "北京广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cq_973a25",
+      "name": "奉节人民广播电台",
+      "group": "重庆",
+      "url": "http://125.82.171.154:8040/ch0.m3u8",
+      "codec": "HLS",
+      "desc": "重庆广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cq_a28db4",
+      "name": "开州之声 FM89.0",
+      "group": "重庆",
+      "url": "http://183.64.174.171:10124/tlgb.m3u8",
+      "codec": "HLS",
+      "desc": "重庆广播电视集团 · FM89.0",
+      "verified": true
+    },
+    {
+      "id": "cq_c59a13",
+      "name": "重庆-合川人民广播电台",
+      "group": "重庆",
+      "url": "http://125.62.24.73:8030/ch0.m3u8",
+      "codec": "HLS",
+      "desc": "重庆广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxcqwygb",
+      "name": "重庆文艺广播",
+      "group": "重庆",
+      "url": "http://satellitepull.cnr.cn/live/wxcqwygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "重庆广播电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxcqdsgb",
+      "name": "重庆都市广播",
+      "group": "重庆",
+      "url": "http://satellitepull.cnr.cn/live/wxcqdsgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "重庆广播电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxcqyygb",
+      "name": "重庆音乐广播",
+      "group": "重庆",
+      "url": "http://satellitepull.cnr.cn/live/wxcqyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "重庆广播电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "fj_29726d",
+      "name": "宁德交通旅游广播",
+      "group": "福建",
+      "url": "https://live.0593tv.cn/live/1x71vlpybkk5.m3u8",
+      "codec": "HLS",
+      "desc": "福建广播影视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "fj_627291",
+      "name": "宁德综合广播",
+      "group": "福建",
+      "url": "https://live.0593tv.cn/live/grhg5jjxnev6.m3u8",
+      "codec": "HLS",
+      "desc": "福建广播影视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "fj_c5831a",
+      "name": "晋江综合广播",
+      "group": "福建",
+      "url": "https://live.ijjnews.com/jjrd/sd/live.m3u8",
+      "codec": "HLS",
+      "desc": "福建广播影视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "fj_f0ac4f",
+      "name": "石狮综合广播",
+      "group": "福建",
+      "url": "https://live-new.chinashishi.net/SSradio/sd/live.m3u8",
+      "codec": "HLS",
+      "desc": "福建广播影视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "fj_30539e",
+      "name": "福州新闻广播",
+      "group": "福建",
+      "url": "http://live.zohi.tv/audio/s10001-FM944/index.m3u8",
+      "codec": "HLS",
+      "desc": "福建广播影视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32fjdngb",
+      "name": "福建东南广播",
+      "group": "福建",
+      "url": "http://satellitepull.cnr.cn/live/wx32fjdngb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "福建广播影视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32fjdndsgb",
+      "name": "福建都市广播·私家车987",
+      "group": "福建",
+      "url": "http://satellitepull.cnr.cn/live/wx32fjdndsgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "福建广播影视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "gs_255d7f",
+      "name": "临夏市综合广播",
+      "group": "甘肃",
+      "url": "http://124.152.34.102:8030/dUhph2/dUhph2.m3u8",
+      "codec": "HLS",
+      "desc": "甘肃省广播电视总台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "gs_287271",
+      "name": "兰州交通音乐广播",
+      "group": "甘肃",
+      "url": "https://liveplus.lzr.com.cn/aac_jtyy/HD/live.m3u8",
+      "codec": "HLS",
+      "desc": "甘肃省广播电视总台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "gs_ee9c3c",
+      "name": "兰州生活文艺广播",
+      "group": "甘肃",
+      "url": "https://liveplus.lzr.com.cn/aac_shwy/HD/live.m3u8",
+      "codec": "HLS",
+      "desc": "甘肃省广播电视总台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "gs_f41e12",
+      "name": "兰州综合广播",
+      "group": "甘肃",
+      "url": "https://liveplus.lzr.com.cn/aac_zhgb/HD/live.m3u8",
+      "codec": "HLS",
+      "desc": "甘肃省广播电视总台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxgsdstb",
+      "name": "甘肃都市调频",
+      "group": "甘肃",
+      "url": "http://satellitepull.cnr.cn/live/wxgsdstb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "甘肃省广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxgsqcgb",
+      "name": "甘肃青春调频",
+      "group": "甘肃",
+      "url": "http://satellitepull.cnr.cn/live/wxgsqcgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "甘肃省广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxgshhzs",
+      "name": "甘肃黄河之声",
+      "group": "甘肃",
+      "url": "http://satellitepull.cnr.cn/live/wxgshhzs/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "甘肃省广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "gd_xwgb",
+      "name": "广东新闻广播",
+      "group": "广东",
+      "url": "http://satellitepull.cnr.cn/live/wxgdxwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 新闻广播",
+      "verified": true
+    },
+    {
+      "id": "gd_gsgb",
+      "name": "广东股市广播",
+      "group": "广东",
+      "url": "http://satellitepull.cnr.cn/live/wxgdgsgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 股市广播",
+      "verified": true
+    },
+    {
+      "id": "gd_zjjj",
+      "name": "珠江经济广播",
+      "group": "广东",
+      "url": "http://satellitepull.cnr.cn/live/wxgdzjjjt/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 珠江经济",
+      "verified": true
+    },
+    {
+      "id": "gd_yyzs",
+      "name": "广东音乐之声",
+      "group": "广东",
+      "url": "http://satellitepull.cnr.cn/live/wxgdyyzs/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 音乐之声",
+      "verified": true
+    },
+    {
+      "id": "gd_ycjt",
+      "name": "羊城交通广播",
+      "group": "广东",
+      "url": "http://satellitepull.cnr.cn/live/wxgdycjtt/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广州广播电视台 · 羊城交通",
+      "verified": true
+    },
+    {
+      "id": "gd_wtgb",
+      "name": "广东文体广播",
+      "group": "广东",
+      "url": "http://satellitepull.cnr.cn/live/wxgdwtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 文体广播",
+      "verified": true
+    },
+    {
+      "id": "gd_nfsh",
+      "name": "南方生活广播",
+      "group": "广东",
+      "url": "http://satellitepull.cnr.cn/live/wxgdnfshgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 南方生活",
+      "verified": true
+    },
+    {
+      "id": "fs_946",
+      "name": "佛山真爱 946",
+      "group": "广东",
+      "url": "https://radiopull.radiofoshan.com.cn/live/1400389414_BSID_46_audio.m3u8",
+      "codec": "HLS",
+      "desc": "佛山人民广播电台 · FM94.6",
+      "verified": true
+    },
+    {
+      "id": "gd_772401",
+      "name": "东莞畅享1075",
+      "group": "广东",
+      "url": "https://stream.sun0769.com/dgrtv1/mp4tv11/index.m3u8?channel=1&t=1768649828&ttl=3600&key=6b0bf8d7f487b09d77d33797b44714c0",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "gd_d3b0ef",
+      "name": "东莞阳光1008",
+      "group": "广东",
+      "url": "https://stream.sun0769.com/dgrtv1/mp4tv10/index.m3u8?channel=1&t=1768649559&ttl=3600&key=df76a29809948793e0b4642b3e4cd26d",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "gd_147c0c",
+      "name": "佛山电台FM94.6真爱946",
+      "group": "广东",
+      "url": "https://radiopull.radiofoshan.com.cn/live/1400389414_BSID_42_audio.m3u8",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · FM94.6",
+      "verified": true
+    },
+    {
+      "id": "gd_ac833b",
+      "name": "佛山综合广播",
+      "group": "广东",
+      "url": "https://radiopull.radiofoshan.com.cn/live/1400820947_BSID_46_audio.m3u8",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "gd_d08472",
+      "name": "佛山顺德广播",
+      "group": "广东",
+      "url": "https://radiopull.radiofoshan.com.cn/live/1400820947_BSID_44_audio.m3u8",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "gd_c61dc4",
+      "name": "广通-廉江广播",
+      "group": "广东",
+      "url": "http://lhttp.qingting.fm/live/20211578/64k.mp3",
+      "codec": "MP3",
+      "desc": "广东广播电视台 · 蜻蜓 FM 源",
+      "verified": true
+    },
+    {
+      "id": "gd_cccc90",
+      "name": "江门新会电台",
+      "group": "广东",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/2916/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "gd_80666a",
+      "name": "肇庆综合广播",
+      "group": "广东",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/2892/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "gd_487dc8",
+      "name": "肇庆高要综合广播",
+      "group": "广东",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/2870/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "广东广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gxjtgb",
+      "name": "广西交通广播",
+      "group": "广西",
+      "url": "http://satellitepull.cnr.cn/live/wx32gxjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gxdwgb",
+      "name": "广西北部湾之声",
+      "group": "广西",
+      "url": "http://satellitepull.cnr.cn/live/wx32gxdwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gbjyshgb",
+      "name": "广西教育广播",
+      "group": "广西",
+      "url": "http://satellitepull.cnr.cn/live/wx32gbjyshgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "gx_716577",
+      "name": "广西文艺广播",
+      "group": "广西",
+      "url": "https://stream.bbrtv.com:10443/hls/rCjJ4Y1MR/rCjJ4Y1MR_live.m3u8",
+      "codec": "HLS",
+      "desc": "广西广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "gx_cca55b",
+      "name": "广西经济广播",
+      "group": "广西",
+      "url": "https://stream.bbrtv.com:10443/hls/wrr24LJGR/wrr24LJGR_live.m3u8",
+      "codec": "HLS",
+      "desc": "广西广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gxjjgb",
+      "name": "广西经济广播·女主播电台",
+      "group": "广西",
+      "url": "http://satellitepull.cnr.cn/live/wx32gxjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gxrmgb",
+      "name": "广西综合广播",
+      "group": "广西",
+      "url": "http://satellitepull.cnr.cn/live/wx32gxrmgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gxwygb",
+      "name": "广西音乐广播 FM95.0",
+      "group": "广西",
+      "url": "http://satellitepull.cnr.cn/live/wx32gxwygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "广西广播电视台 · FM95.0",
+      "verified": true
+    },
+    {
+      "id": "gx_2629a1",
+      "name": "百色综合广播 FM105.2",
+      "group": "广西",
+      "url": "https://vod.bsyjrb.cn/live/9cb859019bb6.m3u8",
+      "codec": "HLS",
+      "desc": "广西广播电视台 · FM105.2",
+      "verified": true
+    },
+    {
+      "id": "gx_280047",
+      "name": "百色音乐广播 FM87.6",
+      "group": "广西",
+      "url": "https://vod.bsyjrb.cn/live/82c95bdd98f2.m3u8",
+      "codec": "HLS",
+      "desc": "广西广播电视台 · FM87.6",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gzgsgb",
+      "name": "贵州故事广播",
+      "group": "贵州",
+      "url": "http://satellitepull.cnr.cn/live/wx32gzgsgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "贵州广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gzlygb",
+      "name": "贵州旅游广播",
+      "group": "贵州",
+      "url": "http://satellitepull.cnr.cn/live/wx32gzlygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "贵州广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gzjjgb",
+      "name": "贵州经济广播",
+      "group": "贵州",
+      "url": "http://satellitepull.cnr.cn/live/wx32gzjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "贵州广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gzwxwzhgb",
+      "name": "贵州综合广播",
+      "group": "贵州",
+      "url": "http://satellitepull.cnr.cn/live/wx32gzwxwzhgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "贵州广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gzqcgb",
+      "name": "贵州都市广播",
+      "group": "贵州",
+      "url": "http://satellitepull.cnr.cn/live/wx32gzqcgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "贵州广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32gzyygb",
+      "name": "贵州音乐广播",
+      "group": "贵州",
+      "url": "http://satellitepull.cnr.cn/live/wx32gzyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "贵州广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxhainyygb",
+      "name": "海南音乐广播",
+      "group": "海南",
+      "url": "http://satellitepull.cnr.cn/live/wxhainyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "海南广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "heb_qcyy",
+      "name": "河北汽车音乐广播",
+      "group": "河北",
+      "url": "https://radio.pull.hebtv.com/live/hebqcyy.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 汽车音乐",
+      "verified": true
+    },
+    {
+      "id": "heb_jtgb",
+      "name": "河北交通广播",
+      "group": "河北",
+      "url": "https://radio.pull.hebtv.com/live/hebjt.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 交通广播",
+      "verified": true
+    },
+    {
+      "id": "heb_xwgb",
+      "name": "河北新闻广播",
+      "group": "河北",
+      "url": "https://radio.pull.hebtv.com/live/hebxw.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 新闻广播",
+      "verified": true
+    },
+    {
+      "id": "heb_zhgb",
+      "name": "河北综合广播",
+      "group": "河北",
+      "url": "https://radio.pull.hebtv.com/live/hebzh.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 综合广播",
+      "verified": true
+    },
+    {
+      "id": "heb_50f9da",
+      "name": "三河综合广播",
+      "group": "河北",
+      "url": "https://jwcdnqx.hebyun.com.cn/live/jiyunsanhe1/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "heb_1563aa",
+      "name": "丰宁综合广播",
+      "group": "河北",
+      "url": "http://jwcdnqx.hebyun.com.cn/live/fengningguangbo/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "heb_cc14a3",
+      "name": "任丘新闻综合广播",
+      "group": "河北",
+      "url": "http://jwcdnqx.hebyun.com.cn/live/rqgb/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "heb_6e43f9",
+      "name": "保定1058飞扬调频汽车音乐广播",
+      "group": "河北",
+      "url": "http://jwcdnqx.hebyun.com.cn/live/fytp1058/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "heb_bdce75",
+      "name": "兴隆综合",
+      "group": "河北",
+      "url": "https://jwcdnqx.hebyun.com.cn/live/xlzh/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "heb_4663e2",
+      "name": "平泉综合广播",
+      "group": "河北",
+      "url": "http://jwcdnqx.hebyun.com.cn/live/pqgbdt/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "heb_1d1d11",
+      "name": "昌黎广播 FM97.8",
+      "group": "河北",
+      "url": "https://jwcdnqx.hebyun.com.cn/live/clxrmtzxzhgb/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · FM97.8",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxhebwygb",
+      "name": "河北文艺广播",
+      "group": "河北",
+      "url": "http://satellitepull.cnr.cn/live/wxhebwygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxhebshgb",
+      "name": "河北生活广播",
+      "group": "河北",
+      "url": "http://satellitepull.cnr.cn/live/wxhebshgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxhebjjgb",
+      "name": "河北经济广播",
+      "group": "河北",
+      "url": "http://satellitepull.cnr.cn/live/wxhebjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxhebyygb",
+      "name": "河北音乐广播",
+      "group": "河北",
+      "url": "http://satellitepull.cnr.cn/live/wxhebyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "heb_a73179",
+      "name": "滦平综合广播",
+      "group": "河北",
+      "url": "https://jwplay.hebyun.com.cn/live/FM978/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "heb_86726f",
+      "name": "肃宁综合广播 FM93.3",
+      "group": "河北",
+      "url": "https://jwcdnqx.hebyun.com.cn/live/snrmgb01/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · FM93.3",
+      "verified": true
+    },
+    {
+      "id": "heb_1b36a4",
+      "name": "邢台交通音乐广播",
+      "group": "河北",
+      "url": "https://jwcdnqx.hebyun.com.cn/live/xtjtyygb/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "heb_484e7a",
+      "name": "邢台综合广播",
+      "group": "河北",
+      "url": "https://jwcdnqx.hebyun.com.cn/live/xinxingtaiRD/1500k/tzwj_video.m3u8",
+      "codec": "HLS",
+      "desc": "河北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hlj_0c082a",
+      "name": "FM冰城102.6·哈尔滨古典音乐广播",
+      "group": "黑龙江",
+      "url": "http://stream.hrbtv.net/gdpl/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hlj_f0e1d1",
+      "name": "哈尔滨交通广播",
+      "group": "黑龙江",
+      "url": "http://stream.hrbtv.net/jtpl/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hlj_18e81e",
+      "name": "哈尔滨文艺广播",
+      "group": "黑龙江",
+      "url": "http://stream.hrbtv.net/wypl/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hlj_2f7528",
+      "name": "哈尔滨经济广播",
+      "group": "黑龙江",
+      "url": "http://stream.hrbtv.net/876pl/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hlj_77630d",
+      "name": "哈尔滨综合广播",
+      "group": "黑龙江",
+      "url": "http://stream.hrbtv.net/xwpl/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hlj_59ab2f",
+      "name": "哈尔滨音乐广播",
+      "group": "黑龙江",
+      "url": "http://stream.hrbtv.net/yypl/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hljjtgb",
+      "name": "阿穆尔河-黑龙江交通广播",
+      "group": "黑龙江",
+      "url": "http://satellitepull.cnr.cn/live/wx32hljjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hljcygb",
+      "name": "黑龙江朝鲜语广播",
+      "group": "黑龙江",
+      "url": "http://satellitepull.cnr.cn/live/wx32hljcygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hljsjcgb",
+      "name": "黑龙江生活广播",
+      "group": "黑龙江",
+      "url": "http://satellitepull.cnr.cn/live/wx32hljsjcgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hljajgb",
+      "name": "黑龙江老年少儿广播·爱家调频",
+      "group": "黑龙江",
+      "url": "http://satellitepull.cnr.cn/live/wx32hljajgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hljnxgb",
+      "name": "黑龙江都市女性广播",
+      "group": "黑龙江",
+      "url": "http://satellitepull.cnr.cn/live/wx32hljnxgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hljyygb",
+      "name": "黑龙江音乐广播",
+      "group": "黑龙江",
+      "url": "http://satellitepull.cnr.cn/live/wx32hljyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hljgxgb",
+      "name": "黑龙江高校广播",
+      "group": "黑龙江",
+      "url": "http://satellitepull.cnr.cn/live/wx32hljgxgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "黑龙江广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "hen_986d7b",
+      "name": "河南交通广播",
+      "group": "河南",
+      "url": "https://stream.hndt.com/live/jiaotong/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hen_a1b430",
+      "name": "河南信息广播",
+      "group": "河南",
+      "url": "https://stream.hndt.com/live/leling/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxhnncgb",
+      "name": "河南农村广播大象资讯台",
+      "group": "河南",
+      "url": "http://satellitepull.cnr.cn/live/wxhnncgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "hen_3d9d23",
+      "name": "河南古典音乐天籁广播",
+      "group": "河南",
+      "url": "http://stream.hndt.com/live/gudian/chunklist_w1085892077.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hen_8661b6",
+      "name": "河南戏曲娱乐广播",
+      "group": "河南",
+      "url": "http://stream.hndt.com/live/yule/chunklist_w1631891218.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hen_1fbac7",
+      "name": "河南戏曲网络广播",
+      "group": "河南",
+      "url": "http://stream.hndt.com/live/wangluoxiqu/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxhnlygb",
+      "name": "河南教育广播",
+      "group": "河南",
+      "url": "http://satellitepull.cnr.cn/live/wxhnlygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "hen_3c321e",
+      "name": "河南新闻广播",
+      "group": "河南",
+      "url": "https://stream.hndt.com/live/xinwen/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hen_d184c4",
+      "name": "河南网络星河音乐台",
+      "group": "河南",
+      "url": "http://stream.hndt.com/live/1061/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hen_302d61",
+      "name": "河南音乐广播",
+      "group": "河南",
+      "url": "https://stream.hndt.com/live/yinyue/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hen_720ce2",
+      "name": "私家车999",
+      "group": "河南",
+      "url": "https://stream.hndt.com/live/sijiache/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "河南广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hub_6fd38e",
+      "name": "宜昌交通广播",
+      "group": "湖北",
+      "url": "https://liveplay.ycrmt.cn/fm/jtt.m3u8",
+      "codec": "HLS",
+      "desc": "湖北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hub_01f505",
+      "name": "宜昌新闻综合广播",
+      "group": "湖北",
+      "url": "https://liveplay.ycrmt.cn/fm/xwt.m3u8",
+      "codec": "HLS",
+      "desc": "湖北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "hub_2d7b31",
+      "name": "宜昌音乐生活广播",
+      "group": "湖北",
+      "url": "https://liveplay.ycrmt.cn/fm/qct.m3u8",
+      "codec": "HLS",
+      "desc": "湖北广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hubzsgb",
+      "name": "湖北之声中波",
+      "group": "湖北",
+      "url": "http://satellitepull.cnr.cn/live/wx32hubzsgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "湖北广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hubjjgb",
+      "name": "湖北经济资讯广播FM99.8",
+      "group": "湖北",
+      "url": "http://satellitepull.cnr.cn/live/wx32hubjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "湖北广播电视台 · FM99.8",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hubyygb",
+      "name": "金色音乐-湖北经典音乐广播",
+      "group": "湖北",
+      "url": "http://satellitepull.cnr.cn/live/wx32hubyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "湖北广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "hun_b9b36f",
+      "name": "常德综合广播",
+      "group": "湖南",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/2650/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "湖南广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hunyygb",
+      "name": "湖南乡村之声",
+      "group": "湖南",
+      "url": "http://satellitepull.cnr.cn/live/wx32hunyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "湖南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hunjtgb",
+      "name": "湖南交通广播",
+      "group": "湖南",
+      "url": "http://satellitepull.cnr.cn/live/wx32hunjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "湖南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hunxwgb",
+      "name": "湖南新闻综合广播",
+      "group": "湖南",
+      "url": "http://satellitepull.cnr.cn/live/wx32hunxwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "湖南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32hunjjgb",
+      "name": "湖南经济广播",
+      "group": "湖南",
+      "url": "http://satellitepull.cnr.cn/live/wx32hunjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "湖南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "hun_3479d3",
+      "name": "湘潭新闻综合广播FM88.2",
+      "group": "湖南",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/2673/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "湖南广播电视台 · FM88.2",
+      "verified": true
+    },
+    {
+      "id": "hun_27b374",
+      "name": "衡阳县综合广播 FM105.6汽车音乐电台",
+      "group": "湖南",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/1182/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "湖南广播电视台 · FM105.6",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32955",
+      "name": "金鹰955·湖南金鹰之声",
+      "group": "湖南",
+      "url": "http://satellitepull.cnr.cn/live/wx32955/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "湖南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "hun_5e1dbf",
+      "name": "龙山综合广播龙凤之声",
+      "group": "湖南",
+      "url": "https://liveplay-srs.voc.com.cn/hls/broadcast/146_80a15b.m3u8",
+      "codec": "HLS",
+      "desc": "湖南广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "js_xwgb",
+      "name": "江苏新闻广播",
+      "group": "江苏",
+      "url": "http://lzlive.vojs.cn/5Fo8mMX/92/live.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 新闻广播",
+      "verified": true
+    },
+    {
+      "id": "js_wygb",
+      "name": "江苏文艺广播",
+      "group": "江苏",
+      "url": "http://satellitepull.cnr.cn/live/wx32jswygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 文艺广播",
+      "verified": true
+    },
+    {
+      "id": "js_gsgb",
+      "name": "江苏故事广播",
+      "group": "江苏",
+      "url": "http://satellitepull.cnr.cn/live/wx32jsgsgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 故事广播",
+      "verified": true
+    },
+    {
+      "id": "nj_yygb",
+      "name": "南京音乐广播",
+      "group": "江苏",
+      "url": "http://hls.njgb.com/live_hls/4/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "南京广电集团 · 音乐广播",
+      "verified": true
+    },
+    {
+      "id": "nj_xwzh",
+      "name": "南京新闻综合广播",
+      "group": "江苏",
+      "url": "http://hls.njgb.com/live_hls/1/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "南京广电集团 · 新闻综合",
+      "verified": true
+    },
+    {
+      "id": "nj_jtgb",
+      "name": "南京交通广播",
+      "group": "江苏",
+      "url": "http://hls.njgb.com/live_hls/2/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "南京广电集团 · 交通广播",
+      "verified": true
+    },
+    {
+      "id": "js_c1a179",
+      "name": "南京经济广播",
+      "group": "江苏",
+      "url": "http://hls.njgb.com/live_hls/6/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32jsjtgb",
+      "name": "江苏交通广播网",
+      "group": "江苏",
+      "url": "http://satellitepull.cnr.cn/live/wx32jsjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32jsjkgb",
+      "name": "江苏健康广播",
+      "group": "江苏",
+      "url": "http://satellitepull.cnr.cn/live/wx32jsjkgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32jsxwzhgb",
+      "name": "江苏新闻综合广播",
+      "group": "江苏",
+      "url": "http://satellitepull.cnr.cn/live/wx32jsxwzhgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32jsjdlxyy",
+      "name": "江苏经典流行音乐广播",
+      "group": "江苏",
+      "url": "http://satellitepull.cnr.cn/live/wx32jsjdlxyy/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32jscjgb",
+      "name": "江苏财经广播",
+      "group": "江苏",
+      "url": "http://satellitepull.cnr.cn/live/wx32jscjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32jsqctp",
+      "name": "江苏金陵之声",
+      "group": "江苏",
+      "url": "http://satellitepull.cnr.cn/live/wx32jsqctp/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32jsyygb",
+      "name": "江苏音乐广播",
+      "group": "江苏",
+      "url": "http://satellitepull.cnr.cn/live/wx32jsyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "js_7075fb",
+      "name": "灌南综合广播",
+      "group": "江苏",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/2722/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "江苏省广播电视总台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "yc_fmb_879",
+      "name": "宜春交通音乐广播 FM87.9",
+      "group": "江西",
+      "url": "https://liveds-yc.newsyc.com/fmb/sd/live.m3u8",
+      "codec": "HLS",
+      "desc": "宜春本地 · 交通音乐",
+      "verified": true
+    },
+    {
+      "id": "yc_fmmf_1011",
+      "name": "宜春新闻综合广播 FM101.1",
+      "group": "江西",
+      "url": "https://liveds-yc.newsyc.com/fmmf/sd/live.m3u8",
+      "codec": "HLS",
+      "desc": "宜春本地 · 新闻综合",
+      "verified": true
+    },
+    {
+      "id": "jx_lygb",
+      "name": "江西旅游广播",
+      "group": "江西",
+      "url": "https://fm-live-pull.jxtvcn.com.cn/live-jxrtv/fm974.m3u8",
+      "codec": "HLS",
+      "desc": "江西广播电视台 · 旅游频率",
+      "verified": true
+    },
+    {
+      "id": "jx_8b7328",
+      "name": "德兴之声国际广播 DeXing International",
+      "group": "江西",
+      "url": "http://player4.juyun.tv/camera/158562106.m3u8",
+      "codec": "HLS",
+      "desc": "江西广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jx_071bf2",
+      "name": "德兴新闻综合广播 FM98.0",
+      "group": "江西",
+      "url": "http://218.64.164.152:5021/live_hls/1/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江西广播电视台 · FM98.0",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32jiangxxwgb",
+      "name": "江西综合新闻广播",
+      "group": "江西",
+      "url": "http://satellitepull.cnr.cn/live/wx32jiangxxwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32jiangxyygb",
+      "name": "江西音乐广播",
+      "group": "江西",
+      "url": "http://satellitepull.cnr.cn/live/wx32jiangxyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "江西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "jl_3d62fa",
+      "name": "东丰综合广播",
+      "group": "吉林",
+      "url": "http://stream3.jlntv.cn/dfgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_9032f1",
+      "name": "乾安综合广播",
+      "group": "吉林",
+      "url": "http://stream7.jlntv.cn/qagb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_33ae71",
+      "name": "双辽综合广播",
+      "group": "吉林",
+      "url": "http://stream3.jlntv.cn/slgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_56b37e",
+      "name": "吉林乡村广播",
+      "group": "吉林",
+      "url": "https://live-jlr.jlntv.cn/live/fm976.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_f3574c",
+      "name": "吉林健康娱乐广播 老歌听不够，经典永流传",
+      "group": "吉林",
+      "url": "https://live-jlr.jlntv.cn/live/fm1019.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_e7ee11",
+      "name": "吉林新闻综合广播",
+      "group": "吉林",
+      "url": "https://live-jlr.jlntv.cn/live/am738.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_18e8be",
+      "name": "吉林旅游广播",
+      "group": "吉林",
+      "url": "https://live-jlr.jlntv.cn/live/fm1033.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_4365f8",
+      "name": "吉林经济广播 老年频率",
+      "group": "吉林",
+      "url": "https://live-jlr.jlntv.cn/live/fm953.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_723c2e",
+      "name": "吉林音乐广播 东北亚音乐台",
+      "group": "吉林",
+      "url": "https://live-jlr.jlntv.cn/live/fm927.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxybwyshgb",
+      "name": "延边文艺生活广播",
+      "group": "吉林",
+      "url": "http://satellitepull.cnr.cn/live/wxybwyshgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "jl_29b83f",
+      "name": "敦化综合广播",
+      "group": "吉林",
+      "url": "http://stream9.jlntv.cn/dhgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_6e3181",
+      "name": "柳河综合广播",
+      "group": "吉林",
+      "url": "http://stream3.jlntv.cn/lhgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_a5246a",
+      "name": "梨树北方交通之声",
+      "group": "吉林",
+      "url": "http://stream3.jlntv.cn/lsgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_0b9cf7",
+      "name": "永吉县人民广播电台",
+      "group": "吉林",
+      "url": "http://stream9.jlntv.cn/yongjigb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_ece577",
+      "name": "珲春综合广播",
+      "group": "吉林",
+      "url": "http://stream9.jlntv.cn/hcgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_b4f4ab",
+      "name": "辽源交通文艺广播",
+      "group": "吉林",
+      "url": "http://stream9.jlntv.cn/lyjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_46ecd1",
+      "name": "集安综合广播",
+      "group": "吉林",
+      "url": "http://stream3.jlntv.cn/jagb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "jl_6b470f",
+      "name": "靖宇县综合广播",
+      "group": "吉林",
+      "url": "http://stream9.jlntv.cn/jygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "吉林广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "ln_1805b5",
+      "name": "凌源综合广播",
+      "group": "辽宁",
+      "url": "https://lhttp-hw.qtfm.cn/live/15318298/64k.mp3",
+      "codec": "MP3",
+      "desc": "辽宁广播电视台 · 蜻蜓 FM 源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxlnzhgb",
+      "name": "辽宁之声",
+      "group": "辽宁",
+      "url": "http://satellitepull.cnr.cn/live/wxlnzhgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "辽宁广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxlnxcgb",
+      "name": "辽宁乡村广播",
+      "group": "辽宁",
+      "url": "http://satellitepull.cnr.cn/live/wxlnxcgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "辽宁广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxlnjtgb",
+      "name": "辽宁交通广播",
+      "group": "辽宁",
+      "url": "http://satellitepull.cnr.cn/live/wxlnjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "辽宁广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxlnwygb",
+      "name": "辽宁经典音乐广播",
+      "group": "辽宁",
+      "url": "http://satellitepull.cnr.cn/live/wxlnwygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "辽宁广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxlnjjtb",
+      "name": "辽宁经济广播",
+      "group": "辽宁",
+      "url": "http://satellitepull.cnr.cn/live/wxlnjjtb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "辽宁广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmghlbehygb",
+      "name": "内蒙古-呼伦贝尔综合广播",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmghlbehygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmglyzs",
+      "name": "内蒙古农村牧区广播绿野之声",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmglyzs/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "nmg_e948c8",
+      "name": "内蒙古城乡生活广播",
+      "group": "内蒙古",
+      "url": "http://play1-qk.nmtv.cn/live/1902718general.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmghyzhxwgb",
+      "name": "内蒙古新闻广播",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmghyzhxwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmgdwgb",
+      "name": "内蒙古蒙语对外广播草原之声",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmgdwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmgmygb",
+      "name": "内蒙古蒙语新闻综合广播",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmgmygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmgyygb",
+      "name": "内蒙古音乐之声",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmgyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmghlbemygb",
+      "name": "呼伦贝尔蒙语广播",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmghlbemygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "nmg_4aae68",
+      "name": "通辽交通文艺广播",
+      "group": "内蒙古",
+      "url": "https://video.tongliaowang.com:2443/live/cid5.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmgxlglhygb",
+      "name": "锡林郭勒综合广播",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmgxlglhygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmgxlglmygb",
+      "name": "锡林郭勒蒙语广播",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmgxlglmygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmgalshygb",
+      "name": "阿拉善汉语广播",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmgalshygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32nmgalsmygb",
+      "name": "阿拉善蒙语广播",
+      "group": "内蒙古",
+      "url": "http://satellitepull.cnr.cn/live/wx32nmgalsmygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "内蒙古广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxnxxwgb",
+      "name": "宁夏新闻广播",
+      "group": "宁夏",
+      "url": "http://satellitepull.cnr.cn/live/wxnxxwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "宁夏广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxnxyygb",
+      "name": "宁夏音乐广播",
+      "group": "宁夏",
+      "url": "http://satellitepull.cnr.cn/live/wxnxyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "宁夏广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32qhjtyygb",
+      "name": "青海交通音乐广播",
+      "group": "青海",
+      "url": "http://satellitepull.cnr.cn/live/wx32qhjtyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "青海广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32qhwxzhgb",
+      "name": "青海新闻综合广播 青海之声",
+      "group": "青海",
+      "url": "http://satellitepull.cnr.cn/live/wx32qhwxzhgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "青海广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32qhjjgb",
+      "name": "青海经济广播",
+      "group": "青海",
+      "url": "http://satellitepull.cnr.cn/live/wx32qhjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "青海广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32qhzygb",
+      "name": "青海藏语广播",
+      "group": "青海",
+      "url": "http://satellitepull.cnr.cn/live/wx32qhzygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "青海广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "shx_415fc0",
+      "name": "彬州市人民广播电台",
+      "group": "陕西",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/2675/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "陕西广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "shx_bb874e",
+      "name": "西安综艺广播 FM102.4",
+      "group": "陕西",
+      "url": "http://stream3.xiancity.cn/3/sd/live.m3u8",
+      "codec": "HLS",
+      "desc": "陕西广播电视台 · FM102.4",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsxxjtgb",
+      "name": "陕西交通广播",
+      "group": "陕西",
+      "url": "http://satellitepull.cnr.cn/live/wxsxxjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "陕西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsxxncgb",
+      "name": "陕西农村广播",
+      "group": "陕西",
+      "url": "http://satellitepull.cnr.cn/live/wxsxxncgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "陕西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsxxxwgb",
+      "name": "陕西新闻广播",
+      "group": "陕西",
+      "url": "http://satellitepull.cnr.cn/live/wxsxxxwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "陕西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsxxjjgb",
+      "name": "陕西经济广播·896汽车调频",
+      "group": "陕西",
+      "url": "http://satellitepull.cnr.cn/live/wxsxxjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "陕西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsxxqcgb",
+      "name": "陕西青少广播·好听1055",
+      "group": "陕西",
+      "url": "http://satellitepull.cnr.cn/live/wxsxxqcgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "陕西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsxxyygb",
+      "name": "陕西音乐广播·快乐988",
+      "group": "陕西",
+      "url": "http://satellitepull.cnr.cn/live/wxsxxyygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "陕西广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "sd_jtgb",
+      "name": "山东交通广播",
+      "group": "山东",
+      "url": "http://audiolive302.iqilu.com/sdradioJiaotong/sdradio05/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "山东广播电视台 · 交通广播",
+      "verified": true
+    },
+    {
+      "id": "sd_yygb",
+      "name": "山东音乐广播",
+      "group": "山东",
+      "url": "http://audiolive302.iqilu.com/sdradioYinyue/sdradio07/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "山东广播电视台 · 音乐广播（实测偶有缓冲）",
+      "verified": true
+    },
+    {
+      "id": "sd_915dae",
+      "name": "山东-定陶人民广播电台",
+      "group": "山东",
+      "url": "http://lhttp.qingting.fm/live/20211680/64k.mp3",
+      "codec": "MP3",
+      "desc": "山东广播电视台 · 蜻蜓 FM 源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsdxcgb",
+      "name": "山东乡村广播",
+      "group": "山东",
+      "url": "http://satellitepull.cnr.cn/live/wxsdxcgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "山东广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsdtyxxgb",
+      "name": "山东体育休闲广播",
+      "group": "山东",
+      "url": "http://satellitepull.cnr.cn/live/wxsdtyxxgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "山东广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsdshxxgb",
+      "name": "山东经典音乐广播",
+      "group": "山东",
+      "url": "http://satellitepull.cnr.cn/live/wxsdshxxgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "山东广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsdjjgb",
+      "name": "山东经济广播",
+      "group": "山东",
+      "url": "http://satellitepull.cnr.cn/live/wxsdjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "山东广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "sd_4ed07b",
+      "name": "经典105·山东经典音乐广播",
+      "group": "山东",
+      "url": "http://audiolive302.iqilu.com/sdradioShenghuo/sdradio04/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "山东广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wx32dfgbdt",
+      "name": "上海长三角之声",
+      "group": "上海",
+      "url": "http://satellitepull.cnr.cn/live/wx32dfgbdt/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "上海广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "sh_dycj",
+      "name": "上海第一财经广播",
+      "group": "上海",
+      "url": "http://satellitepull.cnr.cn/live/wx32dycjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "上海广播电视台 · 第一财经",
+      "verified": true
+    },
+    {
+      "id": "sxi_9ff767",
+      "name": "太谷综合广播",
+      "group": "山西",
+      "url": "https://p2.vzan.com/slowlive/933376641866061786/live.m3u8",
+      "codec": "HLS",
+      "desc": "山西广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sxi_148574",
+      "name": "山西文艺广播",
+      "group": "山西",
+      "url": "http://radiolive.sxrtv.com/live/wenyi.m3u8",
+      "codec": "HLS",
+      "desc": "山西广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sxi_b7d494",
+      "name": "山西综合广播",
+      "group": "山西",
+      "url": "http://radiolive.sxrtv.com/live/xinwen.m3u8",
+      "codec": "HLS",
+      "desc": "山西广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sxi_02c5c4",
+      "name": "运城文艺广播",
+      "group": "山西",
+      "url": "https://live.0359tv.com/lsdream/p3e1Pzg/live.m3u8",
+      "codec": "HLS",
+      "desc": "山西广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sz_d67eef",
+      "name": "深圳宝安湾区之声",
+      "group": "深圳",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/2912/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "深圳广播电影电视集团 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxszsjcgb",
+      "name": "深圳生活942",
+      "group": "深圳",
+      "url": "http://satellitepull.cnr.cn/live/wxszsjcgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "深圳广播电影电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxszfy971",
+      "name": "深圳音乐广播飞扬971",
+      "group": "深圳",
+      "url": "http://satellitepull.cnr.cn/live/wxszfy971/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "深圳广播电影电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "sc_cfd275",
+      "name": "内江交通广播",
+      "group": "四川",
+      "url": "https://www.scnj.tv/hls_njtv/live/jtgb.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_6b1d51",
+      "name": "内江综合广播",
+      "group": "四川",
+      "url": "https://www.scnj.tv/hls_njtv/live/zhgb.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_72b6be",
+      "name": "四川-成都交通文艺广播",
+      "group": "四川",
+      "url": "http://livecdn.pull.cdbs.com.cn/live/fm914/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_2fefcf",
+      "name": "四川-成都新闻广播",
+      "group": "四川",
+      "url": "http://livecdn.pull.cdbs.com.cn/live/fm998/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxscjtgb",
+      "name": "四川交通广播",
+      "group": "四川",
+      "url": "http://satellitepull.cnr.cn/live/wxscjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsc925",
+      "name": "四川私家车广播",
+      "group": "四川",
+      "url": "http://satellitepull.cnr.cn/live/wxsc925/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxsczhgb",
+      "name": "四川综合广播四川之声",
+      "group": "四川",
+      "url": "http://satellitepull.cnr.cn/live/wxsczhgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "sc_4eafb6",
+      "name": "大竹综合广播",
+      "group": "四川",
+      "url": "https://lmt.dazhutv.cn/live3/live3.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_f4af5d",
+      "name": "广元旅游广播",
+      "group": "四川",
+      "url": "https://m3u8.channel.dzsm.com/nmip-media/audiolive/audio101760/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_6e550c",
+      "name": "广安综合广播",
+      "group": "四川",
+      "url": "https://live1.gatv.com.cn:90/live/xwgb.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_65211b",
+      "name": "成都故事广播",
+      "group": "四川",
+      "url": "http://livecdn.pull.cdbs.com.cn/live/fm882/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_81e642",
+      "name": "成都文化休闲广播",
+      "group": "四川",
+      "url": "http://livecdn.pull.cdbs.com.cn/live/fm946/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_dba707",
+      "name": "渠县新闻综合广播",
+      "group": "四川",
+      "url": "http://183.222.248.153:81/hls/nu6vbbdw.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_57e2e9",
+      "name": "资阳综合广播",
+      "group": "四川",
+      "url": "https://zbzy.zyrb.com.cn/sclivedt/zydt.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_1e152e",
+      "name": "雅安交通旅游广播",
+      "group": "四川",
+      "url": "https://play.yunxya.com/audiolive/whsh.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_76649c",
+      "name": "雅安综合广播",
+      "group": "四川",
+      "url": "https://play.yunxya.com/audiolive/1047.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "sc_1dc226",
+      "name": "黑水综合广播·猛河之声",
+      "group": "四川",
+      "url": "http://live.schstv.com:90/live/mhzs.m3u8",
+      "codec": "HLS",
+      "desc": "四川广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "tj_74eaee",
+      "name": "滨海文艺广播",
+      "group": "天津",
+      "url": "http://traffic.jbh.tjbh.com/live/FM101.7/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "天津广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "tj_3dd86c",
+      "name": "滨海综合广播 100.1",
+      "group": "天津",
+      "url": "http://traffic.jbh.tjbh.com/live/FM100.1/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "天津广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "tj_1a22eb",
+      "name": "滨海音乐广播",
+      "group": "天津",
+      "url": "http://traffic.jbh.tjbh.com/live/FM100.5/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "天津广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "xj_62af2a",
+      "name": "克拉玛依汉语综合广播 FM92.6 AM1179",
+      "group": "新疆",
+      "url": "https://live-news.kelamayi.com.cn/hls/k926/index.m3u8",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · FM92.6",
+      "verified": true
+    },
+    {
+      "id": "xj_8d5bd2",
+      "name": "兵团之声",
+      "group": "新疆",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/1838/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "xj_186138",
+      "name": "喀什综合广播",
+      "group": "新疆",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/2773/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxjjtgb",
+      "name": "新疆交通广播",
+      "group": "新疆",
+      "url": "http://satellitepull.cnr.cn/live/wxxjjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxjhygb",
+      "name": "新疆哈语广播",
+      "group": "新疆",
+      "url": "http://satellitepull.cnr.cn/live/wxxjhygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "xj_6f4c86",
+      "name": "新疆文化旅游广播",
+      "group": "新疆",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/988/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxjkygb",
+      "name": "新疆柯语广播",
+      "group": "新疆",
+      "url": "http://satellitepull.cnr.cn/live/wxxjkygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxjxwgb",
+      "name": "新疆汉语新闻广播",
+      "group": "新疆",
+      "url": "http://satellitepull.cnr.cn/live/wxxjxwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxjlsgb",
+      "name": "新疆汉语综合广播",
+      "group": "新疆",
+      "url": "http://satellitepull.cnr.cn/live/wxxjlsgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxjsjcgb",
+      "name": "新疆私家车广播",
+      "group": "新疆",
+      "url": "http://satellitepull.cnr.cn/live/wxxjsjcgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "xj_25b5a7",
+      "name": "新疆维语交通文艺广播",
+      "group": "新疆",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/1834/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxjwyjtwygb",
+      "name": "新疆维语文艺广播",
+      "group": "新疆",
+      "url": "http://satellitepull.cnr.cn/live/wxxjwyjtwygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxjwyzhgb",
+      "name": "新疆维语综合广播",
+      "group": "新疆",
+      "url": "http://satellitepull.cnr.cn/live/wxxjwyzhgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "xj_ee549e",
+      "name": "新疆蒙语广播",
+      "group": "新疆",
+      "url": "https://live.ximalaya.com/radio-first-page-app/live/1835/64.m3u8?transcode=ts",
+      "codec": "HLS",
+      "desc": "新疆广播电视台 · 喜马拉雅源",
+      "verified": true
+    },
+    {
+      "id": "xz_3c82ce",
+      "name": "日喀则综合广播",
+      "group": "西藏",
+      "url": "https://console.rkzrm.cn:20323/3.m3u8",
+      "codec": "HLS",
+      "desc": "西藏广播电视台 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxzdwjtgb",
+      "name": "西藏对外交通广播",
+      "group": "西藏",
+      "url": "http://satellitepull.cnr.cn/live/wxxzdwjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "西藏广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxzzykbfy",
+      "name": "西藏康巴话广播",
+      "group": "西藏",
+      "url": "http://satellitepull.cnr.cn/live/wxxzzykbfy/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "西藏广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxzhygb",
+      "name": "西藏汉语广播",
+      "group": "西藏",
+      "url": "http://satellitepull.cnr.cn/live/wxxzhygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "西藏广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxzzygb",
+      "name": "西藏藏语广播",
+      "group": "西藏",
+      "url": "http://satellitepull.cnr.cn/live/wxxzzygb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "西藏广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxxzdsshgb",
+      "name": "西藏都市生活广播",
+      "group": "西藏",
+      "url": "http://satellitepull.cnr.cn/live/wxxzdsshgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "西藏广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxynjtgb",
+      "name": "云南交通之声",
+      "group": "云南",
+      "url": "http://satellitepull.cnr.cn/live/wxynjtgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "云南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxynsegb",
+      "name": "云南国际广播",
+      "group": "云南",
+      "url": "http://satellitepull.cnr.cn/live/wxynsegb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "云南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxynxwgb",
+      "name": "云南新闻广播",
+      "group": "云南",
+      "url": "http://satellitepull.cnr.cn/live/wxynxwgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "云南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxynmzgb",
+      "name": "云南民族广播",
+      "group": "云南",
+      "url": "http://satellitepull.cnr.cn/live/wxynmzgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "云南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxynjjgb",
+      "name": "云南经济广播·私家车电台",
+      "group": "云南",
+      "url": "http://satellitepull.cnr.cn/live/wxynjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "云南广播电视台 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "yn_yygb",
+      "name": "云南音乐广播",
+      "group": "云南",
+      "url": "https://gbw.ynradio.cn/radio/yygb.stream/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "云南广播电视台 · 音乐广播",
+      "verified": true
+    },
+    {
+      "id": "zj_zs",
+      "name": "浙江之声",
+      "group": "浙江",
+      "url": "http://ali-m-l.cztv.com/channels/lantian/fm88/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · FM88",
+      "verified": true
+    },
+    {
+      "id": "zj_xwgb",
+      "name": "浙江新闻广播",
+      "group": "浙江",
+      "url": "http://ali-m-l.cztv.com/channels/lantian/fm988/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · FM98.8",
+      "verified": true
+    },
+    {
+      "id": "zj_jtgb",
+      "name": "浙江交通之声",
+      "group": "浙江",
+      "url": "http://ali-m-l.cztv.com/channels/lantian/fm93/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · FM93",
+      "verified": true
+    },
+    {
+      "id": "zj_6f50d1",
+      "name": "丽水龙泉广播",
+      "group": "浙江",
+      "url": "http://l.cztvcloud.com/channels/lantian/SXlongquanaud/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "zj_1a9d83",
+      "name": "嵊泗广播",
+      "group": "浙江",
+      "url": "http://l.cztvcloud.com/channels/lantian/SXshengsiaud/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "zj_1f44ea",
+      "name": "开化广播",
+      "group": "浙江",
+      "url": "http://l.cztvcloud.com/channels/lantian/SXkaihuaaud/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "zj_d2f1da",
+      "name": "文成广播",
+      "group": "浙江",
+      "url": "http://l.cztvcloud.com/channels/lantian/SXwenchengaud/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "zj_bf478b",
+      "name": "普陀广播",
+      "group": "浙江",
+      "url": "http://l.cztvcloud.com/channels/lantian/SXputuoaud/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "zj_b7c115",
+      "name": "武义广播FM87.7",
+      "group": "浙江",
+      "url": "http://l.cztvcloud.com/channels/lantian/SXwuyiaud/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · FM87.7",
+      "verified": true
+    },
+    {
+      "id": "zj_74f264",
+      "name": "洞头广播",
+      "group": "浙江",
+      "url": "http://l.cztvcloud.com/channels/lantian/SXdongtouaud/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxzjzs",
+      "name": "浙江之声中波",
+      "group": "浙江",
+      "url": "http://satellitepull.cnr.cn/live/wxzjzs/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxzjcszs",
+      "name": "浙江城市之声",
+      "group": "浙江",
+      "url": "http://satellitepull.cnr.cn/live/wxzjcszs/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxzj1045",
+      "name": "浙江女主播电台",
+      "group": "浙江",
+      "url": "http://satellitepull.cnr.cn/live/wxzj1045/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxzjmsgb",
+      "name": "浙江民生资讯广播",
+      "group": "浙江",
+      "url": "http://satellitepull.cnr.cn/live/wxzjmsgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxzjjjgb",
+      "name": "浙江经济广播",
+      "group": "浙江",
+      "url": "http://satellitepull.cnr.cn/live/wxzjjjgb/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "zj_b48859",
+      "name": "浙江音乐调频",
+      "group": "浙江",
+      "url": "http://ali-m-l.cztv.com/channels/lantian/fm968/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "cnr_wxzj968",
+      "name": "浙江音乐调频·动听968",
+      "group": "浙江",
+      "url": "http://satellitepull.cnr.cn/live/wxzj968/playlist.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 卫星分发流",
+      "verified": true
+    },
+    {
+      "id": "zj_9efa1e",
+      "name": "苍南广播",
+      "group": "浙江",
+      "url": "http://l.cztvcloud.com/channels/lantian/SXcangnanaud/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "zj_46773c",
+      "name": "萧山综合广播",
+      "group": "浙江",
+      "url": "https://l.cztvcloud.com/channels/lantian/SXxiaoshanaud1/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "zj_1df7c9",
+      "name": "诸暨综合广播",
+      "group": "浙江",
+      "url": "http://l.cztvcloud.com/channels/lantian/SXzhujiaud/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    },
+    {
+      "id": "zj_2d7534",
+      "name": "遂昌综合广播",
+      "group": "浙江",
+      "url": "http://l.cztvcloud.com/channels/lantian/SXsuichangaud/128k.m3u8",
+      "codec": "HLS",
+      "desc": "浙江广播电视集团 · 电台官方源",
+      "verified": true
+    }
+  ]
+}
