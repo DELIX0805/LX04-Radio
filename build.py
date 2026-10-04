@@ -9,6 +9,7 @@ import re
 import subprocess
 import sys
 import zipfile
+import tempfile
 
 MIN_SDK = "24"
 TARGET_SDK = "27"
@@ -166,10 +167,11 @@ def run(cmd, quiet=True, timeout=600):
     """timeout 是硬要求：aapt2/d8 卡住时不能让整个构建永久挂起。"""
     try:
         r = subprocess.run(cmd, capture_output=True, text=True,
-                           errors="replace", timeout=timeout)
+                           errors="replace", timeout=timeout,
+                           env=dict(os.environ, RADIO_KS_PASS=KS_PASS, RADIO_KEY_PASS=KEY_PASS))
     except subprocess.TimeoutExpired:
         print("  !! 超时 %ds: %s" % (timeout, os.path.basename(cmd[0])))
-        return subprocess.CompletedProcess(cmd, 124, "", "timeout after %ds" % timeout)
+        raise SystemExit(124)
     if not quiet or r.returncode != 0:
         for ln in (r.stdout or "").splitlines():
             print("  out:", ln)
@@ -177,6 +179,8 @@ def run(cmd, quiet=True, timeout=600):
             print("  err:", ln)
         if r.returncode != 0:
             print("  !! exit", r.returncode, os.path.basename(cmd[0]))
+    if r.returncode != 0:
+        raise SystemExit(r.returncode)
     return r
 
 
@@ -201,6 +205,8 @@ def clean_build():
 
 
 def main():
+    global BUILD
+    output_dir = BUILD
     miss = []
     if not SDK:
         miss.append("Android SDK")
@@ -225,7 +231,9 @@ def main():
         return 1
     print("  ok")
 
-    clean_build()
+    # 每次从空目录构建，验证通过后才原子替换正式安装包。
+    os.makedirs(output_dir, exist_ok=True)
+    BUILD = tempfile.mkdtemp(prefix="staging-", dir=output_dir)
     os.makedirs(os.path.join(BUILD, "obj"), exist_ok=True)
     os.makedirs(os.path.join(BUILD, "gen"), exist_ok=True)
 
@@ -286,13 +294,13 @@ def main():
         print("== keytool ==")
         run([KEYTOOL, "-genkeypair", "-v", "-keystore", KS, "-alias", "radio",
              "-keyalg", "RSA", "-keysize", "2048", "-validity", "10950",
-             "-storepass", KS_PASS, "-keypass", KEY_PASS,
+             "-storepass:env", "RADIO_KS_PASS", "-keypass:env", "RADIO_KEY_PASS",
              "-dname", "CN=Radio, OU=dev, O=tongsir, C=CN"], quiet=False)
 
     print("== sign ==")
     run([JAVA, "-cp", os.path.join(BT, "lib", "apksigner.jar"),
          "com.android.apksigner.ApkSignerTool", "sign", "--ks", KS,
-         "--ks-pass", "pass:" + KS_PASS, "--key-pass", "pass:" + KEY_PASS,
+         "--ks-pass", "env:RADIO_KS_PASS", "--key-pass", "env:RADIO_KEY_PASS",
          "--ks-key-alias", "radio", "--out", os.path.join(BUILD, APK_NAME),
          os.path.join(BUILD, "aligned.apk")], quiet=False)
 
@@ -303,7 +311,8 @@ def main():
 
     apk = os.path.join(BUILD, APK_NAME)
     if os.path.exists(apk):
-        print("OK size=%d" % os.path.getsize(apk))
+        os.replace(apk, os.path.join(output_dir, APK_NAME))
+        print("OK size=%d" % os.path.getsize(os.path.join(output_dir, APK_NAME)))
         return 0
     print("BUILD FAILED")
     return 1

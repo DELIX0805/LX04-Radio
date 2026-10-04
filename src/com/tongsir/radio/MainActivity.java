@@ -109,6 +109,7 @@ public class MainActivity extends Activity implements RadioPlayer.Listener {
 
     private android.animation.ValueAnimator scanAnim;
     private int bufW = 0;
+    private boolean resumed;
 
     // ================= 生命周期 =================
 
@@ -162,14 +163,18 @@ public class MainActivity extends Activity implements RadioPlayer.Listener {
     @Override
     protected void onResume() {
         super.onResume();
+        resumed = true;
         registerNet();
         ui.post(clockTick);
+        if (bufBar.getVisibility() == View.VISIBLE) startScan();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        resumed = false;
         ui.removeCallbacks(clockTick);
+        stopScan();
         unregisterNet();
     }
 
@@ -429,6 +434,10 @@ public class MainActivity extends Activity implements RadioPlayer.Listener {
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             body.setVisibility(View.GONE);                  // 默认全部收起
 
+            for (Integer idx : ids) stationGroupHeader.put(idx, header);
+            body.setTag(new Runnable() {
+                @Override public void run() {
+                    LayoutInflater inf = LayoutInflater.from(MainActivity.this);
             for (int k = 0; k < ids.size(); k++) {
                 final int idx = ids.get(k).intValue();
                 Station s = all.get(idx);
@@ -442,14 +451,15 @@ public class MainActivity extends Activity implements RadioPlayer.Listener {
                 });
                 body.addView(row);
                 addStationRow(idx, row);
-                stationGroupHeader.put(Integer.valueOf(idx), header);
 
-                View div = new View(this);
+                View div = new View(MainActivity.this);
                 div.setLayoutParams(new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT, 1));
                 div.setBackgroundColor(0xFF1A222B);
                 body.addView(div);
             }
+                }
+            });
 
             header.setTag(body);
             header.setOnClickListener(new View.OnClickListener() {
@@ -541,7 +551,7 @@ public class MainActivity extends Activity implements RadioPlayer.Listener {
             favRows.add(row);
             favRowIdx.add(Integer.valueOf(idx));
 
-            View div = new View(this);
+            View div = new View(MainActivity.this);
             div.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, 1));
             div.setBackgroundColor(0xFF1A222B);
@@ -578,6 +588,11 @@ public class MainActivity extends Activity implements RadioPlayer.Listener {
         View body = (View) header.getTag();
         if (body == null) return;
         boolean open = body.getVisibility() != View.VISIBLE;
+        if (open && body.getTag() instanceof Runnable) {
+            ((Runnable) body.getTag()).run();
+            body.setTag(null);
+        }
+        if (open) refreshListHighlight();
         body.setVisibility(open ? View.VISIBLE : View.GONE);
         View arrow = header.findViewById(R.id.groupArrow);
         if (arrow != null) {
@@ -612,7 +627,12 @@ public class MainActivity extends Activity implements RadioPlayer.Listener {
                 }
                 // 都收起时该行不参与布局，getTop() 无意义 —— 退而滚到分组标题
                 if (target == null) target = hdr;
-                if (target != null) listScroll.scrollTo(0, Math.max(0, target.getTop() - 70));
+                if (target != null) {
+                    android.graphics.Rect rect = new android.graphics.Rect();
+                    target.getDrawingRect(rect);
+                    listContent.offsetDescendantRectToMyCoords(target, rect);
+                    listScroll.scrollTo(0, Math.max(0, rect.top - 70));
+                }
                 else listScroll.scrollTo(0, 0);
             }
         });
@@ -932,6 +952,7 @@ public class MainActivity extends Activity implements RadioPlayer.Listener {
     }
 
     private void startScan() {
+        if (!resumed) return;
         final View parent = (View) bufBar.getParent();
         int total = parent.getWidth();
         if (total <= 0) {

@@ -34,7 +34,7 @@ public class WaveView extends View {
     private final Runnable tick = new Runnable() {
         @Override
         public void run() {
-            if (!running) return;
+            if (!running || getWindowVisibility() != VISIBLE || !isShown()) return;
             for (int i = 0; i < BARS; i++) {
                 if (rnd.nextFloat() < 0.45f) target[i] = 0.30f + rnd.nextFloat() * 0.70f;
                 level[i] += (target[i] - level[i]) * 0.42f;
@@ -71,6 +71,13 @@ public class WaveView extends View {
         // View 未 attach 时 post() 会被丢弃。若在 attach 前就 setRunning(true)，
         // 动画链会永远起不来 —— 这里补一次启动。
         if (running) { removeCallbacks(tick); post(tick); }
+    }
+
+    @Override
+    protected void onWindowVisibilityChanged(int visibility) {
+        super.onWindowVisibilityChanged(visibility);
+        removeCallbacks(tick);
+        if (running && visibility == VISIBLE) post(tick);
     }
 
     @Override

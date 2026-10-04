@@ -5,6 +5,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.SystemClock;
 import android.util.Log;
 
 import java.util.List;
@@ -75,6 +76,7 @@ public class RadioPlayer {
     private boolean focusTransient = false;
 
     private Listener listener;
+    private Runnable retryTask;
 
     /**
      * 音频焦点回调。
@@ -91,14 +93,29 @@ public class RadioPlayer {
                             if (!userPaused) pause(true);
                             break;
                         case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
-                            if (!userPaused) { focusTransient = true; pause(true); }
+                            if (!userPaused) {
+                                focusTransient = true;
+                                userPaused = true;
+                                stopInternal();
+                                setState(PAUSED, app.getString(R.string.player_paused));
+                            }
                             break;
                         case AudioManager.AUDIOFOCUS_GAIN:
+                            if (mp != null) {
+                                try { mp.setVolume(1f, 1f); }
+                                catch (IllegalStateException e) { Log.w(TAG, "restore volume", e); }
+                            }
                             if (focusTransient) {
                                 focusTransient = false;
                                 retry = 0;
                                 userPaused = false;
                                 start();
+                            }
+                            break;
+                        case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
+                            if (mp != null) {
+                                try { mp.setVolume(0.2f, 0.2f); }
+                                catch (IllegalStateException e) { Log.w(TAG, "duck", e); }
                             }
                             break;
                         default:
@@ -155,6 +172,7 @@ public class RadioPlayer {
     /** @param silent true 时不改 UI 文案（来电等外部原因触发的静默暂停） */
     public void pause(boolean silent) {
         userPaused = true;
+        focusTransient = false;
         stopInternal();
         abandonFocus();                  // 暂停即让出焦点，否则别的播放器请求不到
         if (state == PAUSED) return;     // 幂等：焦点抖动时不要反复刷 UI
@@ -163,7 +181,8 @@ public class RadioPlayer {
     }
 
     public void release() {
-        reqId++;
+        userPaused = true;
+        listener = null;
         stopInternal();
         abandonFocus();
         focusTransient = false;
@@ -176,13 +195,17 @@ public class RadioPlayer {
         Station s = current();
         if (s == null) return;
         stopInternal();
-        requestFocus();
+        focusTransient = false;
+        if (!requestFocus()) {
+            setState(ERROR, "无法获取音频焦点，请稍后重试");
+            return;
+        }
 
         final int my = ++reqId;
         setState(CONNECTING, app.getString(R.string.player_connecting));
         if (listener != null) listener.onStationChanged(s, index);
         // 准备阶段必须有超时兜底，否则回调不来就永久卡「连接中…」（原因见常量注释）
-        connectAt = System.currentTimeMillis();
+        connectAt = SystemClock.elapsedRealtime();
         armStageTimeout(CONNECT_TIMEOUT_MS);
 
         MediaPlayer m = new MediaPlayer();
@@ -191,16 +214,18 @@ public class RadioPlayer {
             m.setAudioStreamType(AudioManager.STREAM_MUSIC);
             m.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override public void onPrepared(MediaPlayer p) {
-                    if (my != reqId) return;      // 已被切台打断
+                    if (my != reqId || p != mp) return;      // 已被切台打断
                     disarmStageTimeout();
                     // 起播耗时是"连台慢"类问题唯一的量化依据，必须留痕
-                    Log.i(TAG, "onPrepared 用时 " + (System.currentTimeMillis() - connectAt)
+                    Log.i(TAG, "onPrepared 用时 " + (SystemClock.elapsedRealtime() - connectAt)
                             + "ms  url=" + (current() == null ? "?" : current().url));
                     stallCount = 0;
                     lastPos = -1;
-                    playStartedAt = System.currentTimeMillis();
-                    try { p.start(); } catch (Throwable t) {
-                        Log.w(TAG, "start() 失败: " + t);
+                    playStartedAt = SystemClock.elapsedRealtime();
+                    try { p.start(); } catch (IllegalStateException t) {
+                        Log.w(TAG, "start() 失败", t);
+                        scheduleRetry(app.getString(R.string.retry_bad_url));
+                        return;
                     }
                     setState(PLAYING, app.getString(R.string.player_playing));
                     h.removeCallbacks(stallCheck);
@@ -209,7 +234,7 @@ public class RadioPlayer {
             });
             m.setOnErrorListener(new MediaPlayer.OnErrorListener() {
                 @Override public boolean onError(MediaPlayer p, int what, int extra) {
-                    if (my != reqId) return true;
+                    if (my != reqId || p != mp) return true;
                     Log.w(TAG, "onError what=" + what + " extra=" + extra);
                     scheduleRetry(describeError(extra));
                     return true;
@@ -217,18 +242,22 @@ public class RadioPlayer {
             });
             m.setOnInfoListener(new MediaPlayer.OnInfoListener() {
                 @Override public boolean onInfo(MediaPlayer p, int what, int extra) {
-                    if (my != reqId) return false;
+                    if (my != reqId || p != mp) return false;
                     if (what == 701) {                       // MEDIA_INFO_BUFFERING_START
-                        if (state != RETRYING) {
+                        if (state == PLAYING || state == BUFFERING) {
                             setState(BUFFERING, app.getString(R.string.player_buffering));
                             // 缓冲阶段单独计时：只给 701 不给 702 时不会再有回调，同样会卡死
                             armStageTimeout(BUFFER_TIMEOUT_MS);
                         }
-                    } else if (what == 702 || what == 801 || what == 802) {
-                        // 702 = BUFFERING_END；801/802 = MTK 的音频渲染开始（实测每条 HLS 起播都会带 801）
-                        if (state == BUFFERING || state == CONNECTING) {
+                    } else if (what == MediaPlayer.MEDIA_INFO_BUFFERING_END) {
+                        // 只接受标准缓冲结束事件；801/802 不是标准音频起播事件。
+                        if (state == BUFFERING) {
                             disarmStageTimeout();
                             setState(PLAYING, app.getString(R.string.player_playing));
+                            lastPos = -1;
+                            stallCount = 0;
+                            h.removeCallbacks(stallCheck);
+                            h.postDelayed(stallCheck, STALL_TICK);
                         }
                     }
                     return false;
@@ -236,7 +265,7 @@ public class RadioPlayer {
             });
             m.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override public void onCompletion(MediaPlayer p) {
-                    if (my != reqId) return;
+                    if (my != reqId || p != mp) return;
                     // 直播流理论上不会走这里；真走到说明流被服务端主动断开
                     scheduleRetry(app.getString(R.string.retry_ended));
                 }
@@ -250,6 +279,8 @@ public class RadioPlayer {
     }
 
     private void stopInternal() {
+        reqId++;
+        if (retryTask != null) { h.removeCallbacks(retryTask); retryTask = null; }
         h.removeCallbacks(stallCheck);
         h.removeCallbacks(stageTimeout);
         MediaPlayer m = mp;
@@ -266,9 +297,12 @@ public class RadioPlayer {
     }
 
     private void scheduleRetry(String why) {
+        if (state == PLAYING && playStartedAt > 0
+                && SystemClock.elapsedRealtime() - playStartedAt >= STABLE_MS) retry = 0;
         stopInternal();
         if (userPaused) return;
         if (retry >= MAX_RETRY) {
+            abandonFocus();
             setState(ERROR, app.getString(R.string.player_error, why));
             return;
         }
@@ -276,11 +310,13 @@ public class RadioPlayer {
         retry++;
         setState(RETRYING, app.getString(R.string.player_retrying, Integer.valueOf(retry)));
         final int my = reqId;
-        h.postDelayed(new Runnable() {
+        retryTask = new Runnable() {
             @Override public void run() {
+                retryTask = null;
                 if (my == reqId && !userPaused) start();
             }
-        }, d);
+        };
+        h.postDelayed(retryTask, d);
     }
 
     /**
@@ -289,7 +325,12 @@ public class RadioPlayer {
      */
     private final Runnable stallCheck = new Runnable() {
         @Override public void run() {
+            if (state == BUFFERING) {
+                h.postDelayed(this, STALL_TICK);
+                return;
+            }
             if (state != PLAYING) return;
+            if (playStartedAt > 0 && SystemClock.elapsedRealtime() - playStartedAt >= STABLE_MS) retry = 0;
             MediaPlayer m = mp;
             if (m == null) return;
             int p = -1;
@@ -302,7 +343,7 @@ public class RadioPlayer {
                 Log.w(TAG, "位置连续不推进（" + stallCount + " 次），判卡死");
                 // 安稳播过一段才卡 → 偶发卡顿，计数清零，允许继续重连；
                 // 连上就卡 → 保持累加，最终收敛到 ERROR（否则 retry 永不达上限 = 无限重连）
-                if (playStartedAt > 0 && System.currentTimeMillis() - playStartedAt >= STABLE_MS) {
+                if (playStartedAt > 0 && SystemClock.elapsedRealtime() - playStartedAt >= STABLE_MS) {
                     retry = 0;
                 }
                 scheduleRetry(app.getString(R.string.retry_stalled));
@@ -358,7 +399,7 @@ public class RadioPlayer {
         if (listener != null) listener.onState(s, text);
     }
 
-    private void requestFocus() {
+    private boolean requestFocus() {
         try {
             int r = am.requestAudioFocus(focusCb, AudioManager.STREAM_MUSIC,
                                          AudioManager.AUDIOFOCUS_GAIN);
@@ -367,8 +408,10 @@ public class RadioPlayer {
             if (r != AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                 Log.w(TAG, "音频焦点申请被拒 code=" + r + "（可能被其它 App 独占）");
             }
+            return r == AudioManager.AUDIOFOCUS_REQUEST_GRANTED;
         } catch (Throwable t) {
             Log.w(TAG, "requestAudioFocus 异常: " + t);
+            return false;
         }
     }
 
