@@ -6,6 +6,7 @@
 """
 import os
 import re
+import shutil
 import subprocess
 import sys
 import zipfile
@@ -312,9 +313,13 @@ def main():
     apk = os.path.join(BUILD, APK_NAME)
     if os.path.exists(apk):
         os.replace(apk, os.path.join(output_dir, APK_NAME))
+        # staging 临时目录必须清掉：tempfile.mkdtemp 建出来的目录不会被自动回收，
+        # 漏一次就在 build/ 里攒一个（obj 里 47 个 class 文件），越攒越多。
+        shutil.rmtree(BUILD, ignore_errors=True)
         print("OK size=%d" % os.path.getsize(os.path.join(output_dir, APK_NAME)))
         return 0
-    print("BUILD FAILED")
+    # 失败时故意保留 staging，方便翻 obj/gen 里的中间产物排查
+    print("BUILD FAILED  staging 保留在 %s" % BUILD)
     return 1
 
 
